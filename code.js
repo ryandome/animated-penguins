@@ -4,7 +4,7 @@ penguinPromise.then
 (
 function(penguins)
     {
-        setup(penguins);
+        setup(penguins,0);
         
         console.log("works",penguins);
     },
@@ -80,13 +80,13 @@ var setup = function(penguins,index)
     
     d3.select("#divB")
         .selectAll("button")
-        .data(penguins)
+        .data(penguins[index].quizes)
         .enter()
         .append("button")
-        .append("img")
-        .attr("src",function(p)
+        .append("p")
+        .text(function(p)
             {
-                return "penguins/" + p.picture
+                return "penguin" + p.
             })
         
     
@@ -94,11 +94,11 @@ var setup = function(penguins,index)
                     {
                         d3.selectAll("circle")
                         .remove();
-                        return drawArray(penguins,xScale,yScale,p.grade)
+                        return drawArray(penguins,xScale,yScale,p.day)
                     })
     
     
-    //drawArray(penguins,xScale,yScale,0)
+    drawArray(penguins,xScale,yScale,0)
 }
 
 

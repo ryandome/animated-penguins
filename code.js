@@ -86,7 +86,7 @@ var setup = function(penguins,index)
         .append("p")
         .text(function(p)
             {
-                return "penguin" + p.
+                return "penguin" + p.day
             })
         
     

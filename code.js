@@ -25,7 +25,7 @@ var screen = {width:800,height:800}
 var margins = {top:10,right:50,bottom:50,left:50}
 
 
-var setup = function(penguins,index)
+var setup = function(penguins)
 {
     d3.select("svg")
         .attr("width",screen.width)
@@ -79,26 +79,24 @@ var setup = function(penguins,index)
     
     
     d3.select("#divB")
-        .selectAll("button")
-        .data(penguins[index].quizes)
+        .selectAll("img")
+        .data(penguins)//[index].quizes)
         .enter()
-        .append("button")
-        .append("p")
-        .text(function(p)
+        .append("img")
+        .attr("src",function(penguin){return "penguins/" + penguin.picture})
+        /*.text(function(p)
             {
-                return "penguin" + p.day
-            })
-        
-    
-      .on("click", function(p)
+                return "penguin" //+ p.day
+            }) */
+        .on("click", function(penguin,index)
                     {
-                        d3.selectAll("circle")
-                        .remove();
-                        return drawArray(penguins,xScale,yScale,p.day)
+                        //d3.selectAll("circle").remove();
+                        console.log(index)
+                        return drawArray(penguins,xScale,yScale,index)
                     })
     
     
-    drawArray(penguins,xScale,yScale,0)
+    //drawArray(penguins,xScale,yScale,0)
 }
 
 
@@ -107,6 +105,8 @@ var drawArray = function(penguins,xScale,yScale,index)
     var arrays = d3.select("#graph")
             .selectAll("circle")
             .data(penguins[index].quizes)
+            .transition()
+            .duration(2000)
             .attr("fill",function(p)
                 {
                     return "black";

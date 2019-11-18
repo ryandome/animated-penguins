@@ -1,3 +1,8 @@
+body
+{
+    text-align: center;
+    background-color: gold
+}
 button
 {
     width:75px;
@@ -6,6 +11,12 @@ button
 
 img
 {
-    width:50px;
-    height:50px;
+    width:70px;
+    height:100px;
+}
+
+
+.axis text{
+    font-size: 16;
+    font-family: fantasy;
 }

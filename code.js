@@ -74,6 +74,7 @@ var setup = function(penguins)
         .data(penguins[0].quizes)
         .enter()
         .append("circle")
+        
 
     
     
@@ -107,9 +108,10 @@ var drawArray = function(penguins,xScale,yScale,index)
             .data(penguins[index].quizes)
             .transition()
             .duration(2000)
+            .attr("id","circleTooltip")
             .attr("fill",function(p)
                 {
-                    return "black";
+                    return "red";
                 })
             .attr("cx",function(num,index)
                 {
@@ -119,7 +121,43 @@ var drawArray = function(penguins,xScale,yScale,index)
                 {
                     return yScale(num.grade);
                 })
-            .attr("r",3)
+            .attr("r",7)
+    
+    
+    
+
+   /* var tooltip = d3.select("#graph")
+                    .append("div")
+                    .style("position","absolute")
+                    .style("z-index", "10")
+                    .style("visibility","hidden")
+                    .style("background", "#000")
+                    .text("grade")*/
+    
+   /* var tooltip = d3.select("body")
+    .append("div")
+    .style("position", "absolute")
+    .style("z-index", "10")
+    .style("visibility", "hidden")
+    .style("background", "#000")
+    .text("a simple tooltip"); */
+    
+    
+ /*  d3.select("#circleTooltip")
+        .on("mouseover", function() {return                 tooltip.style("visibilty","visible");})
+        .on("mouseout",function() {return tooltip.style("visibility", "hidden");})
+         .on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-20)+"px").style("left",(d3.event.pageX+20)+"px");})*/
+    
+ /*  d3.select("#circleTooltip")
+  .selectAll("div")
+    .data(penguins)
+  .enter().append("div")
+    .style("width", 15)
+    .text("word")
+    .on("mouseover", function(d){tooltip.text(d); return tooltip.style("visibility", "visible");})
+    .on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-20)+"px").style("left",(d3.event.pageX+20)+"px");})
+      .on("mouseout", function(){return tooltip.style("visibility", "hidden");});*/
+            
 }
 
 

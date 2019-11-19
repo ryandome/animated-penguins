@@ -74,8 +74,19 @@ var setup = function(penguins)
         .data(penguins[0].quizes)
         .enter()
         .append("circle")
+        .on("mouseover", function(quiz){
+        d3.select("#tooltip")
+        .style("left", (d3.event.pageX+20)+"px")
+        .style("top", (d3.event.pageY-25) +"px")
+        .text("("+quiz.day+", "+quiz.grade+")")
+        .classed("hidden", false)
         
-
+    })
+        .on("mouseout", function()
+           {
+        d3.select("#tooltip")
+        .classed("hidden", true)
+    })
     
     
     
@@ -98,6 +109,8 @@ var setup = function(penguins)
     
     
     //drawArray(penguins,xScale,yScale,0)
+    
+   
 }
 
 

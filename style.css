@@ -20,3 +20,13 @@ img
     font-size: 16;
     font-family: fantasy;
 }
+
+#tooltip{
+    background-color: aqua;
+   position: fixed;
+}
+
+.hidden
+{
+    display: none;
+}
